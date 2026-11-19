@@ -1,3 +1,4 @@
+import { ArrowIcon } from './arrow-icon';
 import type { ChartDTO } from '@/lib/methodology/public';
 import { ExpandedMatrix } from './expanded-matrix';
 import Link from 'next/link';
@@ -22,10 +23,10 @@ export function LandingHero({matrix,expanded,localPreview,sampleDate='1993-04-17
       </div>
       <div className={styles.artCaption}><span>THE WINGED FIGURE</span><span>An ornamental atlas<br/>of 22 symbolic archetypes.</span></div>
       <div className={styles.bottomLine}>
-        <a href="#how-it-works" className={styles.explore}>A closer look <span aria-hidden="true">↓</span></a>
-        <details className={styles.matrixExample}><summary>Explore the example matrix <span aria-hidden="true">↗</span></summary><div className={styles.matrixBody}>{expanded?<ExpandedMatrix chart={expanded} example/>:matrix?<Chart matrix={matrix} preview/>:null}<p>Illustrative example · {sampleDate}.</p></div></details>
+        <a href="#how-it-works" className={styles.explore}>A closer look <ArrowIcon direction="down"/></a>
+        <details className={styles.matrixExample}><summary>Explore the example matrix <ArrowIcon/></summary><div className={styles.matrixBody}>{expanded?<ExpandedMatrix chart={expanded} example/>:matrix?<Chart matrix={matrix} preview/>:null}<p>Illustrative example · {sampleDate}.</p></div></details>
       </div>
-      {localPreview&&<p className={styles.previewNote}>LOCAL DEVELOPMENT · UNPAID DEMO <Link prefetch={false} href={`/dev/checkout?date=${sampleDate}`}>Test local reading access ↗</Link></p>}
+      {localPreview&&<p className={styles.previewNote}>LOCAL DEVELOPMENT · UNPAID DEMO <Link prefetch={false} href={`/dev/checkout?date=${sampleDate}`}>Test local reading access <ArrowIcon/></Link></p>}
     </div>
   </section>;
 }
